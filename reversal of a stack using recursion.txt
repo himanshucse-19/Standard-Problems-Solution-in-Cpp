@@ -1,0 +1,48 @@
+void insert(stack<lli>&s,lli temp)
+{
+    if(s.size()==0)
+    {
+        s.push(temp);
+        return;
+    }
+    int z=s.top();
+    s.pop();
+    insert(s,temp);
+    s.push(z);
+    return;
+}
+void rever(stack<lli>&s)
+{
+    if(s.size()==0)
+    {
+        return ;
+    }
+    int x=s.top();
+    s.pop();
+    rever(s);
+    insert(s,x);
+    return;
+}
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+//test{
+  lli n;
+  cin>>n;
+  stack<lli>s;
+  loop0(i,n)
+  {
+      lli x;
+      cin>>x;
+      s.push(x);
+  }
+  rever(s);
+  while(!s.empty())
+  {
+      cout<<s.top()<<endl;
+      s.pop();
+  }
+//}
+}

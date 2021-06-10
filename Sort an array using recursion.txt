@@ -1,0 +1,72 @@
+/First,solve the problem then write the code:);)/
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define test ll t;cin>>t;while(t--)
+#define vll vector<ll>
+#define mll map<ll,ll>
+#define vvll vector<vector<ll>>
+#define vpll vector<pair<ll,ll>>
+#define vvpll vector<vector<pair<ll,ll>>>
+#define mpll map<pair<ll,ll>,ll>
+#define pll pair<ll,ll>
+#define sll stack<ll>
+#define qll queue<ll>
+#define pb push_back
+#define bs binary_search
+#define lb lower_bound
+#define ub upper_bound
+#define ff first
+#define ss second
+#define mod 1000000007
+#define ma 1000000000000000000
+#define mi -1000000000000000000
+bool ispalin(string str)
+{
+  for(ll i=0;i<str.length()/2;i++)
+  {
+    if(str[i]!=str[str.length()-1-i])
+    {
+      return 0;
+    }
+  }
+  return  1;
+}
+void insert(vector<int>&v,int temp)
+{
+  if(v.size()==0||v.back()<=temp)
+  {
+    v.push_back(temp);
+    return;
+  }
+  int y=v.back();
+  v.pop_back();
+  insert(v,temp);
+  v.push_back(y);
+}
+void sort(vector<int>&v)
+{
+  if(v.size()==1)
+  return;
+  ll x=v[v.size()-1];
+  v.pop_back();
+  sort(v);
+  insert(v,x);
+}
+
+int main()
+{
+  int n;
+  cin>>n;
+  vector<int>v;
+  for(int i=0;i<n;i++)
+  {
+    int y;
+    cin>>y;
+    v.pb(y);
+  }
+  sort(v);
+  for(auto x:v)
+  cout<<x<<" ";
+}

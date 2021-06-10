@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+//int arr[20000][20000];
+int row[]={0,1,1};
+int col[]={1,0,1};
+//bool vis[20000][2000];
+int dist[20000][20000];
+int dist1[20000][20000];
+int n,m;
+void bfs(int a,int b)
+{
+    //vis[a][b]=true;
+    queue<pair<int,int>>q;
+    q.push({a,b});
+    while(!q.empty())
+    {
+        auto z=q.front();
+        q.pop();
+        int x=z.first;
+        int y=z.second;
+        for(int i=0;i<3;i++)
+        {
+            int adx=x+row[i];int ady=y+col[i];
+            if(adx>0 && adx<=n && ady>0 && ady<=m)
+            {
+                dist[adx][ady]=dist[x][y]+1;
+                //vis[adx][ady]=true;
+                q.push({adx,ady});
+            }
+        }
+    }
+}
+void bfs1(int a,int b)
+{
+    //vis[a][b]=true;
+    queue<pair<int,int>>q;
+    q.push({a,b});
+    while(!q.empty())
+    {
+        auto z=q.front();
+        q.pop();
+        int x=z.first;
+        int y=z.second;
+        for(int i=0;i<2;i++)
+        {
+            int adx=x+row[i];int ady=y+col[i];
+            if(adx>0 && adx<=n && ady>0 && ady<=m)
+            {
+                dist1[adx][ady]=dist1[x][y]+1;
+                //vis[adx][ady]=true;
+                q.push({adx,ady});
+            }
+        }
+    }
+}
+// int dfs(int a,int b,int n,int m){
+//   vis[a][b]=true;
+//   int flag=0;
+//   for(int i=0;i<4;i++){
+//     int adx=a+row[i];int ady=b+col[i];
+//     if(adx>=0 && adx<n && ady>=0 && ady<m && arr[adx][ady]=='1'&&vis[adx][ady]==false){
+//         flag=1;
+//       return 1+dfs(adx,ady,n,m);
+//     }
+//   }
+//   if(flag==0)
+//   return 1;
+
+// }
+
+signed main()
+{
+  //write your code here
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      //int n,m;
+      cin>>n>>m;
+      int x,y,z,w;
+      cin>>x>>y>>z>>w;
+      for(int i=1;i<=n;i++)
+      {
+          for(int j=1;j<=m;j++)
+          {
+              dist[i][j]=0;
+              dist1[i][j]=0;
+          }
+      }
+      bfs(z,w);
+      bfs1(x,y);
+      int r=dist[n][m];
+      int u=dist1[n][m];
+      if(r<u)
+      cout<<"NO\n";
+      else
+      cout<<"YES\n";
+  }
+  return 0;
+ }  

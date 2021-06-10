@@ -1,0 +1,288 @@
+#include <bits/stdc++.h>
+typedef long long int lli;
+typedef long double ld;
+#define TIME clock() * 1.0 
+#define MAX 10000
+#define pie 3.14159265358
+#define COMPUTE_PARITY(number) __builtin_parity(number)
+#define COMPUTE_LEADING_ZEROES(number) __builtin_clzll(number)
+#define COMPUTE_TRAILING_ZEROES(number) __builtin_ctzll(number)
+const ld pi = acos(-1.0);
+const int day[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+const int digarr[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+const int dx[4] = {0, 1, 0, -1};
+const int dy[4] = {1, 0, -1, 0};
+const int dxo[8] = {-1, -1, -1, 0, 1, 1, 1, 0};
+#define ll lli
+const int dyo[8] = {-1, 0, 1, 1, 1, 0, -1, -1};
+const int alf = 26;
+const int dig = 10;
+const int two = 2;
+const int th = 3;
+const ll prost = 239;
+const ll btc = 30;
+const ld eps = 1e-10;
+const int BIG = (int)(1e9 + 239);
+const long long MOD = (long long)(1e9 + 7); //(int)(1e9 + 7); //998244353;
+const ll MOD2 = (ll)MOD * (ll)MOD;
+const int M = (int)(2e5 + 239);
+const int N = (int)(2e3 + 239);
+const int L = 20;
+const int T = (1 << 20);
+const int B = 500;
+const int X = 1e4 + 239;
+#include <bits/stdc++.h>
+typedef unsigned long long ull;
+typedef long double ld;
+#define REP(i,n) for(ll i=0; i<(n); i++)
+#define REPR(i, n) for(ll i = n;i >= 0;i--)
+#define FOR(i, m, n) for(ll i = m;i < n;i++)
+#define ALL(n) begin(n),end(n)
+#define IN(a, x, b) (a<=x && x<b)
+const long double EPS = 1e-10;
+const long long INF = 1e18;
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define floop for(lli i=0;i<n;i++)
+#define mod 1000000007
+#define defvec vector<lli>
+#define ub upper_bound
+#define pb push_back
+#define bs binary_search
+#define MINF ll(-8230219982008199610)
+#define loop0(i,n) for(lli i=0; i<n; i++)
+#define loop1(i,n) for(lli i=1;i<=n;i++)
+using namespace std;
+ll findTrailingZeros(ll n) 
+{ 
+    ll count = 0; 
+  
+    for (ll i = 5; n / i >= 1; i *= 5) 
+        count += n / i; 
+  
+    return count; 
+} 
+
+ll power(ll aa, ll nn) 
+{ 
+    ll res = 1;    
+    aa = aa % MOD;  
+  
+    while (nn > 0) 
+    { 
+        if (nn & 1) 
+            res=(res*aa) % MOD; 
+        nn = nn>>1; 
+        aa= (aa*aa)%MOD; 
+    } 
+    return res; 
+} 
+ll  nCrModp(ll n, ll r, ll  p)
+{
+    long long C[r+1];
+    memset(C, 0, sizeof(C));
+ 
+    C[0] = 1;
+    for (long long i = 1; i <= n; i++)
+    {
+        for (long long j = min(i, r); j > 0; j--)
+            C[j] = (C[j] + C[j-1])%p;
+    }
+    return C[r];
+}
+int64_t sum = 0;
+
+void find(int64_t upmax,int64_t rightmax){
+  int64_t kk = 0;
+  if(upmax < 2)return;
+  if(rightmax < 2)return;
+
+  if(2*upmax <= rightmax){
+    
+    kk += upmax - 1;
+  }
+  else {
+    kk += rightmax/2 - 1;
+  }
+
+  if(2*rightmax <= upmax){
+    kk += rightmax - 1;
+  }
+  else{
+    kk += upmax/2 - 1;
+  } 
+
+  sum += kk;
+}
+  
+ll isPrime1(ll n) 
+{ 
+
+  if (n <= 1) 
+    return 0; 
+  if (n==2 || n==3) 
+    return 1; 
+  if (n % 2 == 0 || n % 3 == 0) 
+    return 0; 
+    
+  for (ll i = 5; i * i<=n; i+=6) 
+    if (n % i == 0 || n % (i + 2) == 0) 
+      return 0; 
+
+  return 1; 
+} 
+struct Interval { 
+  long start, end; 
+}; 
+bool compareInterval(Interval a, Interval b) 
+{
+    if(a.start!=b.start)
+    return (a.start > b.start);
+    else if(a.start==b.start)
+     return a.end<b.end;
+    
+    
+    
+} 
+//countsquares between range or having odd number of divisors
+ll countSquares(ll a,ll b) 
+{ 
+    return (floor(sqrt(b)) - ceil(sqrt(a)) + 1); 
+} 
+ll OR(ll v[], ll n) 
+{ 
+    ll ans =v[0]; 
+    for (ll i = 1; i < n; i++)  
+         {ans=(ans|v[i])-v[i];
+             
+             if(ans<0){
+                 ans=0;break;
+             }
+         }     
+  
+    return ans; 
+} 
+//return powers of 2 (2^0+2^1+2^2+...... and this function returns 0+1+2+.....)
+ll block(ll  x) 
+{ 
+    vector<ll> v; 
+      ll sum=0,count=0;
+    while (x > 0)  
+    { 
+        v.push_back(x % 2); 
+       if(x%2==1)count++;
+        x = x / 2;
+        
+    } 
+    return count;
+} 
+
+// return greatest possible number we can make placing all of them together
+bool cmp(long long a,long long b)
+{
+    return to_string(a)+to_string(b)>to_string(b)+to_string(a);
+}
+string leftrotate(string s, ll d) 
+{ 
+    reverse(s.begin(), s.begin()+d); 
+    reverse(s.begin()+d, s.end()); 
+    reverse(s.begin(), s.end()); 
+    return s;
+} 
+string rightrotate(string s, ll d) 
+{ 
+    return leftrotate(s, s.length()-d); 
+}
+//Maximum Subarray Sum
+ll maxSubArraySum(vector<ll>&a, ll size) 
+{ 
+    ll max_so_far = INT_MIN, max_ending_here = 0; 
+  
+    for (long long i = 0; i < size; i++) 
+    { 
+        max_ending_here=max(max_ending_here+a[i],a[i]);
+        max_so_far=max(max_so_far,max_ending_here);
+    } 
+    return max_so_far; 
+}
+#define ld long double
+ll calc(ll x,ll y)
+{
+    ll x1=(log2(x))+1LL,y1=(log2(y))+1LL;
+
+    ll xx=x,yy=y;
+
+    x=(x<<y1);
+
+    y=(y<<x1);
+    
+    y+=xx;x+=yy;
+    
+    return abs(y-x);
+}
+ll togglebit(ll n) 
+{ 
+    if (n == 0) 
+        return 1; 
+    ll i = n; 
+  
+    n |= n >> 1; 
+    n |= n >> 2; 
+    n |= n >> 4; 
+    n |= n >> 8; 
+    n |= n >> 16; 
+  
+    return i ^ n; 
+} 
+
+ll XNOR(ll num1, ll num2) 
+{ 
+    // if num2 is greater then 
+    // we swap this number in num1 
+    if (num1 < num2) 
+        swap(num1, num2);  
+    num1 = togglebit(num1); 
+    
+    return num1 ^ num2; 
+ }
+ string bin(lli n)
+ {
+   string s="";
+   while(n)
+   {
+     if(n%2)
+     s+='1';
+     else
+     s+='0';
+     n=n/2;
+   }
+   reverse(s.begin(),s.end());
+   return s;
+ }
+ lli dec(string s)
+ {
+   reverse(s.begin(),s.end());
+   lli sum=0;
+   for(lli i=0;i<s.length();i++)
+   {
+     sum+=(s[i]-48)*pow(2,i);
+   }
+   return sum;
+ }
+ bool isSubSequence(char str1[], char str2[],lli m,lli n)
+{
+    lli j = 0; // For index of str1 (or subsequence
+ 
+    // Traverse str2 and str1, and
+    // compare current character
+    // of str2 with first unmatched char
+    // of str1, if matched
+    // then move ahead in str1
+    for (lli i = 0; i < n && j < m; i++)
+        if (str1[j] == str2[i])
+            j++;
+ 
+    // If all characters of str1 were found in str2
+    return (j == m);
+}

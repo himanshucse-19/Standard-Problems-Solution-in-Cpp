@@ -1,0 +1,260 @@
+//all_of(a,a+n,ispositive());  //to check all the elements in array are positive
+//any_of(a,a+n,ispositive());  //to check any element in array is positive
+//none_of(a,a+n,ispositive());  //to check none of the elements in array is positive
+//iota(a,a+n,10); //this will print consequtive n terms starting from 10 //ex if n=5 than 10,11,12,13,14
+//same can be used for character array
+//a number is divisible by 8 if last three digits of it is divisible by 8
+//ex. 1512 as 512 is divisible by 8 so 1512 is also divisible by 8
+
+/* NUMBER OF WAYS TO PLACE TWO QUEENS ON A BOARD OF SIZE n*n SUCH THAT THEY DO NOT ATTACK ON EACH OTHER
+   count=(pow(n,4)/2)-(5*(pow(n,3)/3)+(3*pow(n,2)/2)-n/3;
+*/
+
+/* bitset<10>s;
+  s[0]=1;
+  s[3]=1;
+  s[5]=1;
+  s[7]=1;
+  cout<<s;
+ output is 1001010100
+  cout<<s.count();
+  output is frequency of 1 so 4
+
+*/
+
+// a number is power of 4 if num>0 && log2(num)/2==(int)log2(num)/2
+
+//if(abs(a-b)<1e-9)                  //TO COMPARE FLOATING POINT INTEGER
+//{  
+//    a and b are equal
+//}
+
+//string s=R"(HIMANS&\nSHAN\t)"; we can print a whole string same as given by doing this
+//vector<int>v={1,2,3,4};
+//vector<int>w=move(v);
+//after this v={};
+//w={1,2,3,4};
+// to reverse a string reverse(str.begin(), str.end());
+//  OR
+// string rev = string(str.rbegin(),str.rend());
+
+//q.front() operation works in queue but not works in priority_queue
+//so for priority_queue q.top() is used
+
+// ~x=-(x+1)  ex: ~29=-30;
+
+unsigned lli leftRotate(unsigned lli n, unsigned lli d) 
+{ 
+    return (n << d)|(n >> (INT_BITS - d)); 
+} 
+unsigned lli rightRotate(unsigned lli n,unsigned lli d) 
+{ 
+    return (n >> d)|(n << (INT_BITS - d)); 
+} 
+
+lli issorted(lli arr[], lli n) 
+
+{ 
+ if (n == 1 || n == 0) 
+        
+return 1; 
+  
+ 
+if(arr[n - 1] < arr[n - 2]) 
+       
+return 0; 
+  
+
+
+return issorted(arr, n - 1); 
+
+} 
+
+lli count(string s)//count distinct element in string
+{
+    lli ans=1,i,j;
+    for(i=1;i<s.length();i++)
+    {
+        for(j=0;j<i;j++)
+        {
+            if(s[i]==s[j])
+            break;
+        }
+        if(i==j)
+        ans++;
+    }
+    return ans;
+}
+
+lli countarray(lli a[],lli n)//count distinct element in array
+{
+  unordered_set<lli>s;
+for(lli i=0;i<n;i++)
+s.insert(a[i]);
+return s.size();
+}
+
+
+
+
+
+struct interval
+
+{
+    int start,end;
+   
+ 
+};
+                                             //SORTING IN A SPECIAL ORDER
+bool compare(interval x,interval y)
+
+{
+    return (x.start<y.start);
+}
+
+
+int count_primes_in_range(int n)  //to count number of primes from 1 to n
+{
+   
+bool isprime[n+1];
+    
+for(int i=2;i<=n;i++)
+    
+isprime[i]=true;
+    
+isprime[0]=false;
+    
+isprime[1]=false;
+    
+for(int i=2;i<=sqrt(n);i++)
+    
+{   
+if(isprime[i]==true)
+       
+{
+           
+for(int j=i*i;j<=n;j+=i)
+        
+{
+           
+isprime[j]=false;
+               
+}
+
+}
+      
+    
+}
+    
+int count=0;
+    
+for(int i=0;i<=n;i++)
+    
+{
+        
+if(isprime[i]==true)
+        
+count++;
+    
+}
+    
+return count;
+
+}
+
+lli largest_power(lli N)
+    {                                              //LARGEST POWER OF 2 JUST LESS THAN OR EQUAL TO A GIVEN 16 BIT NUMBER
+        //changing all right side bits to 1.
+        N = N| (N>>1);
+        N = N| (N>>2);
+        N = N| (N>>4);
+        N = N| (N>>8);
+        N = N| (N>>16);  
+
+    //as now the number is 2 * x-1, where x is required answer, so adding 1 and dividing it by
+                return (N+1)>>1;
+
+    }
+
+bool alternate(lli n)
+{
+    lli i;
+    if((n^(n>>1))==(pow(2,i)-1))           //this is to check that in binary representation of n, n has alternate sequence or not
+    return true;                             //ex.101010          if n^(n>>1) is like this 11111 or containing only set bits then yes otherwise no  
+return false;
+}
+void pairsort(int a[], char b[], int n)     //SORT AN ARRAY ACCORDING TO SECOND ARRAY
+{ 
+    pair<int, char> pairt[n]; 
+  
+    // Storing the respective array 
+    // elements in pairs. 
+    for (int i = 0; i < n; i++)  
+    { 
+        pairt[i].first = a[i]; 
+        pairt[i].second = b[i]; 
+    } 
+  
+    // Sorting the pair array. 
+    sort(pairt, pairt + n); 
+      
+    // Modifying original arrays 
+    for (int i = 0; i < n; i++)  
+    { 
+        a[i] = pairt[i].first; 
+        b[i] = pairt[i].second; 
+    } 
+} 
+
+void rev(int a[],int n)
+{
+        for(lli i=0,j=n-1;i<j;i++,j--)
+        {
+            swap(a[i],a[j]);
+        }
+        loop0(i,n)
+        cout<<a[i]<<" ";
+}
+/*void concatenate(int arr1[], int arr2[], int m, int n) 
+{ 
+   memcpy(arr1 + m, arr2, sizeof(arr2));    //TO CONCATENATE TWO ARRAYS
+} */
+bool isvalid(lli x,lli y,lli n,lli m)
+{
+    if(x<0||x>(n-1)||y<0||y>(m-1))
+    return false;
+    //if(visited[x][y]==true)
+    //return false;
+    return true;
+}
+
+lli SubArraySum(lli arr[] ,lli n ) 
+{ 
+    lli result = 0; 
+    for (lli i=0; i<n; i++) 
+        result += (arr[i] * (i+1) * (n-i)); 
+    return result ; 
+} 
+
+lli gcd_(lli a,lli b) 
+{
+    if (!a || !b)      //if a==0 || b==0 than simply return other element
+        return a | b;
+    unsigned shift = __builtin_ctzll(a | b);  //this will count min 2 factor in both numbers
+    a >>= __builtin_ctzll(a);
+    do {
+        b >>= __builtin_ctzll(b);
+        if (a > b)
+            swap(a, b);
+        b -= a;
+    } while (b);
+    //finally b will become 0 and a will contain our result
+    return a << shift;
+}
+/*lli dectobin(lli n)
+{                                           //DECIMAL TO BINARY FOR A 32 BIT INTEGER
+for (int i = 31; i >= 0; i--) {
+if (n&(1<<i)) cout << "1";
+else cout << "0";
+}
+}*/

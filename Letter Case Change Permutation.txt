@@ -1,0 +1,33 @@
+void lettercase(string inp,string out)
+{
+    if(inp=="")
+    {
+        cout<<out<<endl;
+        return;
+    }
+    if(inp[0]>=97&&inp[0]<=122)
+        {
+            lettercase(inp.substr(1),out+inp[0]);
+            lettercase(inp.substr(1),out+lowertoupper(inp[0]));
+        }
+    else if(inp[0]>=65&&inp[0]<=90)
+        {
+            lettercase(inp.substr(1),out+inp[0]);
+            lettercase(inp.substr(1),out+uppertolower(inp[0]));
+        }
+    else if(inp[0]>=48&&inp[0]<=57)
+        {
+            lettercase(inp.substr(1),out+inp[0]);
+        }
+    return ;    
+}
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+string s;
+cin>>s;
+string out="";
+lettercase(s,out);
+}

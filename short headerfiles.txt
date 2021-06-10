@@ -1,0 +1,99 @@
+#include<bits/stdc++.h>
+#define scn(n) scanf("%d",&n)
+
+#define lscn(n) scanf("%lld ",&n)
+
+#define scn2(n1,n2) scanf("%d%d",&n1,&n2)
+
+#define lscn2(n1,n2) scanf("%lld%lld",&n1,&n2)
+
+#define lpri(n) printf("%lld ",n)
+
+#define lpri2(n1,n2) printf("%lld %lld\n",n1,n2)
+
+#define pri(n) printf("%d ",n)
+
+#define pri2(n1,n2) printf("%d %d\n",n1,n2)
+
+#define pln() printf("\n")
+
+#define priln(n) printf("%d\n",n)
+
+#define lpriln(n) printf("%lld\n",n)
+
+#define rep(i,init,n) for(int i=init;i<n;i++)
+
+#define repv(i,init,n) for(int i=init;i>=n;i--)
+
+
+#define mp make_pair
+
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define F first
+
+#define S second
+#define lli long long int
+#define all(x) x.begin(), x.end()
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       // a%b=a-b*floor(a/b);
+#define floop for(lli i=0;i<n;i++)
+#define mod 1000000007
+#define defvec vector<lli>v
+#define ub upper_bound
+#define pb push_back
+#define bs binary_search
+#define INF ll(8230219982008199610)
+#define MINF ll(-8230219982008199610)
+#define INT_BITS 16
+#define ones(n) __builtin_popcountll(n)
+#define focc(n) __builtin_ffsll(n) //to count index of first 1 from right in binary representation of a number starting from index 1
+#define leadingzero(n) __builtin_clzll(n)
+#define trailingzeroes(n) __builtin_ctzll(n)
+//string s=R"(HIMANS&\nSHAN\t)"; we can print a whole string same as given by doing this
+//vector<int>v={1,2,3,4};
+//vector<int>w=move(v);
+//after this v={};
+//w={1,2,3,4};
+// to reverse a string reverse(str.begin(), str.end());
+//  OR
+// string rev = string(str.rbegin(),str.rend());
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using ll=long long;
+//using namespace boost::multiprecision ;
+using namespace std;
+//All 4 digit palindromic numbers are divisible by 11.
+//A number of form pow(2,n) has exactly N+1 divisors
+//If we repeat a three-digit number twice, to form a six-digit number. The result will will be divisible by 7, 11 and 13, and dividing by all three will give your original three-digit number.
+bool isvalid(lli x,lli y,lli n,lli m)
+{
+    if(x<0||x>(n-1)||y<0||y>(m-1))
+    return false;
+    //if(visited[x][y]==true)
+    //return false;
+    return true;
+}
+lli bs(lli a[],lli start,lli end,lli x,lli n)
+{
+    lli mid=start+(end-start)/2;
+    if(start>end)
+    return -1;
+    if(a[mid]==x)
+    return mid;
+    else if(a[mid]>x)
+    return bs(a,start,mid-1,x,n);
+    else 
+    return bs(a,mid+1,end,x,n);
+}     
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+test{
+
+   }
+}

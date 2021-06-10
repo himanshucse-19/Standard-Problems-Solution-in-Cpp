@@ -1,0 +1,55 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+//EULER TOTIENT FUNCTION
+//EULer totient FUNCTION or Phi() function is distributive 
+//phi(n)=phi(pow(p1,x1))*phi(pow(p2,x2));
+//where p1 and p2 are prime factorisation 
+lli phi[100005];
+lli Phi()
+{
+    for(lli i=1;i<=100005;i++)
+    {
+        phi[i]=i;
+    }
+    for(lli i=2;i<=100005;i++)
+    {
+        if(phi[i]==i)
+       {
+           for(lli j=i;j<=100005;j+=i)
+        {
+            phi[j]*=(i-1);
+            phi[j]/=i;
+        }
+       }
+    }
+    
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+for(lli i=1;i<=100005;i++)
+phi[i]=0;
+Phi();
+for(lli i=1;i<=100005;i++)
+cout<<phi[i]<<" ";
+cout<<endl;
+}

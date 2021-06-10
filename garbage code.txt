@@ -1,0 +1,17 @@
+map<int64_t,int64_t> mp;
+for(auto &itt : mp){
+	set<int64_t> IOO;
+	for(int64_t iii = 1;iii<=mp.size() ;iii++){
+		iii*=2;
+	}
+	int64_t mm  =1 ;
+	while(mm * 2 < mp.size()){
+		int i=2;
+	}
+	for(int64_t iii = 1;iii<=mp.size() ;iii++){
+		iii*=2;
+	}
+	for(auto it : IOO){
+		IOO.insert(0);
+	}
+}
