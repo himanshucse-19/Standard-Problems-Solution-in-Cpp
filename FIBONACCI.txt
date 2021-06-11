@@ -1,0 +1,105 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+#define N 55
+void multiply(lli a[][N],lli b[][N],lli n)
+{
+    lli res[n][n];
+    loop0(i,n)
+    {
+        loop0(j,n)
+        {
+            res[i][j]=0;
+        }
+    }
+    for(lli i=0;i<n;i++)
+    {
+        loop0(j,n)
+        {
+           loop0(k,n)
+           {
+               res[i][j]+=(a[i][k]*b[k][j])%mod;
+               res[i][j]%=mod;
+           }
+        }
+    }
+    loop0(i,n)
+    {
+        loop0(j,n)
+        {
+            a[i][j]=res[i][j];
+        }
+    }
+}
+void matrix_expo(lli a[][N],lli n,lli m)
+{
+    lli I[N][N];
+    loop0(i,n)
+    {
+        loop0(j,n)
+        {
+            if(i==j)
+            I[i][j]=1;
+            else
+            I[i][j]=0;
+        }
+    }
+    while(m)
+    {
+        if(m%2)
+        multiply(I,a,n);
+        m=m/2;
+        multiply(a,a,n);
+    }
+    lli aa[N][N];
+    aa[0][0]=1;
+    aa[0][1]=1;
+    multiply(aa,I,2);
+    cout<<aa[0][0]<<endl;
+    // loop0(i,n)
+    // {
+    //     loop0(j,n)
+    //     {
+    //         cout<<I[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+}
+int main()
+{
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
+        lli n;
+        cin>>n;
+        if(n==0)
+        cout<<0<<endl;
+        else
+       {
+           lli a[N][N];
+        a[0][0]=0;
+        a[0][1]=1;
+        a[1][0]=1;
+        a[1][1]=1;
+        matrix_expo(a,2,n-1);
+        cout<<endl;
+       }
+    // }
+}
