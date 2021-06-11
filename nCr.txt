@@ -1,0 +1,98 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+bool isPrime(lli n) 
+{ 
+    if(n<=1)  return false; 
+    if(n<=3)  return true; 
+    if(n%2==0||n%3==0) return false; 
+    for(lli i=5; i*i<=n; i=i+6) 
+    if (n%i == 0 || n%(i+2) == 0) 
+    return false; 
+    return true; 
+}
+lli modular_expo_i(lli a,lli n)
+{
+    lli x=1ll;
+    while(n)
+    {
+        if(n%2!=0)
+        x=((x)*(a))%mod;
+        n=n/2;
+        a=((a)*(a))%mod;
+    }
+    return x%mod;
+}
+
+lli modular_expo(lli a,lli n)
+{
+    lli x=1ll;
+    while(n)
+    {
+        if(n%2!=0)
+        x=((x%mod)*(a%mod))%mod;
+        n=n/2;
+        a=((a%mod)*(a%mod))%mod;
+    }
+    return x%mod;
+}
+lli power_(lli a,lli n) 
+{ 
+    lli res = 1;      
+   
+    while (n > 0) 
+    { 
+        if (n& 1) 
+            res = ((res)*(a)); 
+        n/=2; 
+        a=((a)*(a));
+    } 
+    return res; 
+}
+lli nCr(lli n,lli r)
+{
+    lli fact[n+1];
+    memset(fact,0,sizeof(fact));
+    fact[1]=1;
+    fact[2]=2;
+    for(lli i=1;i<=n;i++)
+    {
+        
+    }
+}
+int main()
+{
+    toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+    lli fact[1000005];
+    fact[0]=1;
+    fact[1]=1;
+    for(lli i=2;i<1000005;i++)
+    {
+        fact[i]=((fact[i-1]%mod)*(i%mod))%mod;
+    }
+    test{
+        lli n,k;
+        cin>>n>>k;
+        lli ans=((fact[k]%mod)*(fact[n-k]%mod))%mod;
+        lli res=modular_expo(ans,mod-2);
+        lli uttar=((fact[n]%mod)*(res%mod))%mod;
+        cout<<uttar<<endl;
+        
+    }
+}
