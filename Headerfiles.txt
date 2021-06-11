@@ -236,13 +236,9 @@ lli modularexponentiation(lli a,lli n,lli mo)
     lli cnt = 0; 
     for (int i = 1; i <= sqrt(n); i++) { 
         if (n % i == 0) { 
-            // If divisors are equal, 
-            // count only one 
-            if (n / i == i) 
-                cnt++; 
-  
-            else // Otherwise count both 
-                cnt = cnt + 2; 
+            if (n / i != i) 
+                cnt++;
+                cnt++;
         } 
     } 
     return cnt;
@@ -388,17 +384,17 @@ map<lli,lli> primeFactors(lli n)
 void primefactors(lli n)
 {                                     //PRIME FACTORISATION USING SIEVE
     lli d[n+1];
-    memset(d,-1,sizeof(d));
-    d[1]=1;
+    for(lli i=1;i<=n;i++)
+    d[i]=i;
     for(lli i=2;i<=n;i+=2)
     {
         d[i]=i;
     }
-    for(lli i=3;i<=n;i+=2)
+    for(lli i=3;i*i<=n;i+=2)
     {
-        if(d[i]==-1)
+        if(d[i]==i)
         {
-            for(lli j=i;j<=n;j+=i)
+            for(lli j=i*i;j<=n;j+=i)
             {
                 if(d[j]==-1)
                 {
@@ -462,9 +458,8 @@ pair<lli,lli> fib (lli n) {
 int main()
 {
    toh_shuru_karte_hai_bina_kise_bakchodi_ke;
-//freopen("input.txt", "r", stdin);
-//freopen("output.txt", "w", stdout);
-test{
- 
-}
+   test{
+      
+      
+   }
 }
