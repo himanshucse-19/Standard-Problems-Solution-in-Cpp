@@ -1,0 +1,89 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+
+/*
+CHINESE REMAINDER THEOREM
+ IF U ARE GIVEN VALUES LIKE THIS 
+ X%2=1;
+ x%3=2;
+ x%7=5;
+then we can find value of x using thid theorem
+
+*/
+
+void extended_euclid(lli a,lli b,lli& x,lli& y)
+{
+    if(b==0)
+    {
+        x=1;
+        y=0;
+        return;
+    }
+    lli x1=0,y1=0;
+    extended_euclid(b,a%b,x1,y1);
+    x=y1;
+    y=x1-(a/b)*y1;
+    return ;
+}
+//We can only calculate modulo_multiplicative_inverse if GCD(a,m) is 1
+lli modulo_multiplicative_inverse(lli a,lli b)
+{
+    lli x=0,y=0;
+    extended_euclid(a,b,x,y);
+    return (x+b)%b;    
+}
+lli chinese_remainder_theorem(lli a[],lli rem[],lli n)
+{
+    lli prod=1;
+    loop0(i,n)
+    prod=prod*a[i];
+    vector<lli>pp(n,0),inv(n,0);
+    lli ans=0;
+    loop0(i,n)
+    {
+        pp[i]=prod/a[i];
+    }
+    loop0(i,n)
+    {
+        inv[i]=modulo_multiplicative_inverse(pp[i],a[i]);
+    }
+    loop0(i,n)
+    {
+        ans+=(rem[i]*pp[i]*inv[i])%prod;
+    }
+    return ans;
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+test{
+    lli n;
+    cin>>n;
+    lli a[n],rem[n];
+    loop0(i,n)
+    cin>>a[i];
+    loop0(j,n)
+    cin>>rem[j];
+    lli ans=chinese_remainder_theorem(a,rem,n);
+    cout<<ans<<endl;
+}
+}
