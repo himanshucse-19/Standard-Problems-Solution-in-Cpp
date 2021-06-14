@@ -1,0 +1,16 @@
+Willsons theorem
+
+# (N-1)!%N if N is prime is equal to (N-1) or -1
+ means (N-1)! = -1(mod N)
+
+
+# Fermats little theorem 
+    a^p=a(mod p) a and p are coprime and p is prime.
+    a^(p-1)=1(mod p)
+    a^(p-2)=(a^-1)(mod p)
+ 
+OR generally we can say 
+   
+a^(-1)(mod p)==(a^(phi(p)-1))(mod p)
+
+    
