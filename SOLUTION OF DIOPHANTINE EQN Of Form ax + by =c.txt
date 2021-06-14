@@ -1,0 +1,58 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+void extended_euclid(lli a,lli b,lli& x,lli& y)
+{
+    if(b==0)
+    {
+        x=1;
+        y=0;
+        return;
+    }
+    lli x1=0,y1=0;
+    extended_euclid(b,a%b,x1,y1);
+    x=y1;
+    y=x1-(a/b)*y1;
+    return ;
+}
+void sol_of_diophantine_eqn(lli a,lli b,lli c)
+{
+    lli z=__gcd(a,b);
+    if(c%z!=0)
+    {
+        cout<<"No Solution Exist\n";
+        return ;
+    }
+    lli x=0,y=0;
+    extended_euclid(a,b,x,y);
+    cout<<x*(c/z)<<" "<<y*(c/z)<<endl;
+    
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+test{
+    lli a,b,c;
+    cin>>a>>b>>c;
+    sol_of_diophantine_eqn(a,b,c);
+    
+}
+}
