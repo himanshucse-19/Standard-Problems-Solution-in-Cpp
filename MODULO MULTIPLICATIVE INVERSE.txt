@@ -31,6 +31,7 @@ void extended_euclid(lli a,lli b,lli& x,lli& y)
     y=x1-(a/b)*y1;
     return ;
 }
+//We can only calculate modulo_multiplicative_inverse if GCD(a,m) is 1
 lli modulo_multiplicative_inverse(lli a,lli b)
 {
     lli x=0,y=0;
