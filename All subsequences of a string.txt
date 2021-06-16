@@ -1,0 +1,43 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+void subsequences(string input,string output)
+{
+    if(output.length()==0)
+    {
+        cout<<input<<endl;
+        return;
+    }
+    subsequences(input+output[0],output.substr(1));
+    subsequences(input,output.substr(1));
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+test{
+    string s;
+    cin>>s;
+    string input="";
+    string output=s;
+    subsequences(input,output);
+    
+}
+}
