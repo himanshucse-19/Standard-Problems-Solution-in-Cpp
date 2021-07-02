@@ -1,0 +1,77 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+lli tree[400005];
+//TREE BUILDING
+void build(lli a[],lli ss,lli se,lli index)
+{
+    if(ss==se)
+    {
+        tree[index]=a[ss];               //For leaf nodes:leaf nodes contains value presented in array
+        return;
+    }
+    lli mid=(ss+se)/2;
+    build(a,ss,mid,2*index);
+    build(a,mid+1,se,2*index+1);
+    tree[index]=min(tree[2*index],tree[2*index+1]);
+}
+
+//QUERY
+lli query(lli a[],lli ss,lli se,lli qs,lli qe,lli index)
+{
+    if(ss>=qs&&se<=qe)
+    return tree[index];                   //If our segement range lies completely inside our query range then we can conclude ans of segement into our query ans
+    if(se<qs||ss>qe)
+    return INT_MAX;                       //if completely outside then simply return garbaze according to our query
+    lli mid=(ss+se)/2;                    //for partially 
+    lli left=query(a,ss,mid,qs,qe,2*index);
+    lli right=query(a,mid+1,se,qs,qe,2*index+1);
+    return min(left,right);
+}
+//POINT UPDATE
+void update(lli a[],lli ss,lli se,lli ind,lli updated_value,lli index)
+{
+    if(ind>se||ind<ss)             //if our ind is completely outside segement range then there will be no effect on this segment
+    return;
+    if(ss==se)
+    {
+        tree[index]=updated_value;   //ss will be equal to ind
+        return;
+    }
+    lli mid=(ss+se)/2;
+    update(a,ss,mid,ind,updated_value,2*index);
+    update(a,mid+1,se,ind,updated_value,2*index+1);
+    tree[index]=min(tree[2*index],tree[2*index+1]);
+    
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+arrin;
+build(a,0,n-1,1);
+update(a,0,n-1,2,10,1);
+update(a,0,n-1,3,15,1);
+cout<<endl;
+loop1(i,4*n)
+cout<<tree[i]<<" ";
+cout<<endl;
+
+}
