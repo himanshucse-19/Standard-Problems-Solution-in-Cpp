@@ -55,7 +55,7 @@ while(t--)
         mp[a[i]]++;
     }
     lli cnt=1;
-    for(auto &x:mp)
+    for(auto &x:mp)            //Mapping to convert large values according to size of our array
     {
         x.second=cnt;
         cnt++;
@@ -72,7 +72,7 @@ while(t--)
     lli ans=0;
     loop0(i,n)
     {
-        ans+=query(z)-query(a[i]);
+        ans+=query(z)-query(a[i]);                  //No. greater to the left of a number will be equal to total number - number smaller to the left of that number.
         update(a[i],1,z);
     }
     // loop1(i,z)
