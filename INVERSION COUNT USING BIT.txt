@@ -1,0 +1,84 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+lli BIT[200005];
+void update(lli i,lli val,lli n)
+{
+    while(i<=n)
+    {
+        BIT[i]+=val;
+        i+=((i&(-i)));
+    }
+}
+lli query(lli i)
+{
+    lli ans=0;
+    while(i>0)
+    {
+        ans+=BIT[i];
+        i=(i&(i-1));
+    }
+    return ans;
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+int t;
+cin>>t;
+while(t--)
+{
+    lli n;
+    cin>>n;
+    lli a[n];
+    map<lli,lli>mp;
+    loop0(i,n)
+    {
+        cin>>a[i];
+        mp[a[i]]++;
+    }
+    lli cnt=1;
+    for(auto &x:mp)
+    {
+        x.second=cnt;
+        cnt++;
+    }
+    loop0(i,n)
+    a[i]=mp[a[i]];
+    // loop0(i,n)
+    // cout<<a[i]<<" ";
+    // cout<<endl;
+    lli z=*max_element(a,a+n);
+    // cout<<z<<endl;
+    loop1(i,200004)
+    BIT[i]=0;
+    lli ans=0;
+    loop0(i,n)
+    {
+        ans+=query(z)-query(a[i]);
+        update(a[i],1,z);
+    }
+    // loop1(i,z)
+    // cout<<BIT[i]<<" ";
+    // cout<<endl;
+    cout<<ans<<endl;
+    
+}
+}
