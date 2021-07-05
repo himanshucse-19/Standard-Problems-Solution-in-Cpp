@@ -1,0 +1,67 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+//We can find Whether our graph contains cycle or not using dsu ans also we can find size of each connected component and also number of connected components
+lli par[100005];
+lli size[100005];
+lli find(lli n)
+{
+    if(par[n]<0)
+    return n;
+    return par[n]=find(par[n]);
+}
+void union_i(lli a,lli b)
+{
+    a=find(a);
+    b=find(b);
+    if(a==b)
+    return ;
+    if(size[a]>size[b])
+    {
+        par[b]=a;
+        size[a]+=size[b];
+    }
+    else
+    {
+        par[a]=b;
+        size[b]+=size[a];
+    }
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+loop1(i,100004)
+size[i]=1,par[i]=-1;
+lli n,m;
+cin>>n>>m;
+while(m--)
+{
+    lli x,y;
+    cin>>x>>y;
+    union_i(x,y);
+}
+loop1(i,n)
+cout<<par[i]<<" ";
+cout<<endl;
+loop1(i,n)
+cout<<size[i]<<" ";
+cout<<endl;
+}
