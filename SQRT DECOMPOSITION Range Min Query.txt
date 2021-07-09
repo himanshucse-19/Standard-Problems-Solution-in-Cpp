@@ -1,0 +1,58 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+arrin;
+lli z=ceil(sqrt(n));
+lli precompute[z];
+for(int i=0;i<z;i++)
+precompute[i]=INT_MAX;
+loop0(i,n)
+{
+    precompute[i/z]=min(precompute[i/z],a[i]);
+}
+lli q;
+cin>>q;
+while(q--)
+{
+    lli l,r;
+    cin>>l>>r;
+    lli counter=l;
+    lli ans=INT_MAX;
+    while(counter<=r)
+    {
+        if(counter%z==0&&counter+z-1<=r)
+        {
+            ans=min(ans,precompute[counter/z]);
+            counter+=z;
+        }
+        else
+        {
+            ans=min(ans,a[counter]);
+            counter++;
+        }
+    }
+    cout<<ans<<endl;
+}
+}
