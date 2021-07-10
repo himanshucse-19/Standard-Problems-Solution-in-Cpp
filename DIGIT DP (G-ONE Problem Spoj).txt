@@ -1,0 +1,73 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+// lli dp[pos][sum][tight]  pos means max number of digits in our range and sum is somewhat pos*9 and tight means whether we have restriction or not so only 2 values are possible 0 and 1
+lli dp[10][90][2];
+lli prime[]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71};
+lli helper(string str,lli pos=0,lli sum=0,lli tight=1)  //Because 1st digit will always be restricted  //pos is just for traversing our whole string sum is sum of digits of number and tight is some what restriction on pos
+{
+    if(pos==str.size())
+    {
+        if(binary_search(prime,prime+20,sum))
+        return 1;
+        return 0;
+    }
+    if(dp[pos][sum][tight]!=-1)
+    return dp[pos][sum][tight];
+    if(tight==1)
+    {
+        lli res=0;
+        for(int i=0;i<=str[pos]-'0';i++)
+        {
+            if(i==(str[pos]-'0'))
+            res+=helper(str,pos+1,sum+i,1);
+            else
+            res+=helper(str,pos+1,sum+i,0);
+        }
+        return dp[pos][sum][tight]=res;
+    }
+    else
+    {
+        lli res=0;
+        for(int i=0;i<=9;i++)
+        {
+            res+=helper(str,pos+1,sum+i,0);
+        }
+        return dp[pos][sum][tight]=res;
+    }
+}
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+test{
+    lli l,r;
+    cin>>l>>r;
+    l=l-1;
+    memset(dp,-1,sizeof(dp));
+    string x=to_string(l);
+    lli res=helper(x);
+    string y=to_string(r);
+    memset(dp,-1,sizeof(dp));
+    lli ans=helper(y);
+    lli uttar=ans-res;
+    cout<<uttar<<endl;
+}
+}
