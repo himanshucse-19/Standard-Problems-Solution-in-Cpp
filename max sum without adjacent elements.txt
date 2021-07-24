@@ -1,0 +1,17 @@
+unordered_map<int,int>mp;
+int go(vector<vector<int>>&a,int i)
+{
+    if(mp.count(i))
+    return mp[i];
+    if(i>=a[0].size())
+    return 0;
+    long long int sum=0;
+    int x1=max(a[0][i],a[1][i])+go(a,i+2);
+    int x2=go(a,i+1);
+    sum+=max(x1,x2);
+    return mp[i]=sum;
+}
+int Solution::adjacent(vector<vector<int> > &A) {
+    mp.clear();
+   return go(A,0);
+}
