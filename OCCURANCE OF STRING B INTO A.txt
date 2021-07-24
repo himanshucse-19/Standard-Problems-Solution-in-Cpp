@@ -1,0 +1,28 @@
+lli dp[1000000][10];
+lli go(string s,string t,lli i,lli j)
+{
+    if(j==t.length())
+    return 1;
+    if(i==s.length())
+    return 0;
+    if(dp[i][j]!=-1)
+    return dp[i][j];
+    if(s[i]!=t[j])
+    {
+        return dp[i][j]=go(s,t,i+1,j)%mod;
+    }
+    else
+    {
+        return dp[i][j]=((go(s,t,i+1,j+1)%mod)+(go(s,t,i+1,j)%mod))%mod;
+    }
+}
+int main()
+{
+   toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+    string s;
+    cin>>s;
+    string t="chokudai";
+    memset(dp,-1,sizeof(dp));
+    lli ans=go(s,t,0,0);
+    cout<<ans<<endl;
+}
