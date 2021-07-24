@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define lli int64_t
+#define mod 1000000007
+using namespace std;
+unordered_map<string,bool>mp;
+bool go(string ip,string op,string ils)
+{
+    if(op.empty()and ip.empty() and ils.empty())
+    return true;
+    string str=ip+op+ils;
+    if(mp.count(str))
+    return mp[str];
+    if(ils.empty())
+    return false;
+    bool first=(!ip.empty()and ip[0]==ils[0])and go(ip.substr(1),op,ils.substr(1));
+    bool second=(!op.empty()and op[0]==ils[0]) and go(ip,op.substr(1),ils.substr(1));
+    return mp[str]=first or second;
+}
+int main()
+{
+   ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+//     #ifndef ONLINE_JUDGE
+//   freopen("input.txt","r",stdin);
+//   freopen("output.txt","w",stdout);
+//     #endif
+    string a,b,c;
+    cin>>a>>b>>c;
+    bool ans=go(a,b,c);
+    cout<<ans<<endl;
+}
