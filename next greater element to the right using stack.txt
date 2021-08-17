@@ -29,7 +29,7 @@ rev0(i,n)
     v.pb(-1);
     else
     {
-        while(s.top()<=a[i])
+        while(!s.empty()&&s.top()<=a[i])
         s.pop();
         if(s.empty())
         v.pb(-1);
