@@ -1,17 +1,25 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define int long long int
-//int arr[20000][20000];
-int row[]={0,1,1};
-int col[]={1,0,1};
-//bool vis[20000][2000];
-int dist[20000][20000];
-int dist1[20000][20000];
+
+
+int dx[]={-1,0,1,0};
+int dy[]={0,1,0,-1};
+int dist[510][50000];
+bool vis[510][50000];
+char a[510][50000];
 int n,m;
+
+bool isvalid(int x,int y)
+{
+    if(x<0||x>=n||y<0||y>=m||a[x][y]=='#'||vis[x][y]==true)
+    return false;
+    return true;
+}
 void bfs(int a,int b)
 {
-    //vis[a][b]=true;
     queue<pair<int,int>>q;
+    dist[a][b]=0;
+    vis[a][b]=true;
     q.push({a,b});
     while(!q.empty())
     {
@@ -19,83 +27,43 @@ void bfs(int a,int b)
         q.pop();
         int x=z.first;
         int y=z.second;
-        for(int i=0;i<3;i++)
+        for(int i=0;i<4;i++)
         {
-            int adx=x+row[i];int ady=y+col[i];
-            if(adx>0 && adx<=n && ady>0 && ady<=m)
+            if(isvalid(x+dx[i],y+dy[i]))
             {
-                dist[adx][ady]=dist[x][y]+1;
-                //vis[adx][ady]=true;
-                q.push({adx,ady});
+                q.push({x+dx[i],y+dy[i]});
+                vis[x+dx[i]][y+dy[i]]=true;
+                dist[x+dx[i]][y+dy[i]]=dist[x][y]+1;
             }
         }
     }
 }
-void bfs1(int a,int b)
+string reachTheEnd(vector<string>grid, int maxTime)
 {
-    //vis[a][b]=true;
-    queue<pair<int,int>>q;
-    q.push({a,b});
-    while(!q.empty())
+    for(int i=0;i<grid.size();i++)
     {
-        auto z=q.front();
-        q.pop();
-        int x=z.first;
-        int y=z.second;
-        for(int i=0;i<2;i++)
+        for(int j=0;j<grid[0].size();j++)
         {
-            int adx=x+row[i];int ady=y+col[i];
-            if(adx>0 && adx<=n && ady>0 && ady<=m)
-            {
-                dist1[adx][ady]=dist1[x][y]+1;
-                //vis[adx][ady]=true;
-                q.push({adx,ady});
-            }
+            a[i][j]=grid[i][j];
         }
     }
+    for(int i=0;i<510;i++)
+    {
+        for(int j=0;j<50000;j++)
+        {
+            vis[i][j]=false;
+            dist[i][j]=1e9;
+        }
+    }
+    n=grid.size();
+    m=grid[0].size();
+    bfs(0,0);
+    if(dist[n-1][m-1]<=maxTime)
+    return "Yes";
+    return "No";
 }
-// int dfs(int a,int b,int n,int m){
-//   vis[a][b]=true;
-//   int flag=0;
-//   for(int i=0;i<4;i++){
-//     int adx=a+row[i];int ady=b+col[i];
-//     if(adx>=0 && adx<n && ady>=0 && ady<m && arr[adx][ady]=='1'&&vis[adx][ady]==false){
-//         flag=1;
-//       return 1+dfs(adx,ady,n,m);
-//     }
-//   }
-//   if(flag==0)
-//   return 1;
 
-// }
-
-signed main()
-{
-  //write your code here
-  int t;
-  cin>>t;
-  while(t--)
-  {
-      //int n,m;
-      cin>>n>>m;
-      int x,y,z,w;
-      cin>>x>>y>>z>>w;
-      for(int i=1;i<=n;i++)
-      {
-          for(int j=1;j<=m;j++)
-          {
-              dist[i][j]=0;
-              dist1[i][j]=0;
-          }
-      }
-      bfs(z,w);
-      bfs1(x,y);
-      int r=dist[n][m];
-      int u=dist1[n][m];
-      if(r<u)
-      cout<<"NO\n";
-      else
-      cout<<"YES\n";
-  }
-  return 0;
- }  
+int main(){
+    vector<string> grid = {"..",".."};
+    cout << reachTheEnd(grid, 3) << endl;
+}
