@@ -1,0 +1,49 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+lli dp[1000][1000];
+// Write Top Down recursive code and convert it into Top Down Dp (Tabulation)
+lli knapsack(lli a[],lli b[],lli n,lli x)
+{
+    if(x<0)
+    return INT_MIN;
+    if(n==0||x==0)
+    return 0;
+    if(dp[n][x]!=-1)
+    return dp[n][x];
+    return dp[n][x]=max(b[n-1]+knapsack(a,b,n-1,x-a[n-1]),knapsack(a,b,n-1,x));
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+lli n;
+cin>>n;
+lli wt[n],cost[n];
+loop0(i,n)
+cin>>wt[i];
+loop0(i,n)
+cin>>cost[i];
+lli W;
+cin>>W;
+memset(dp,-1,sizeof(dp));
+lli ans=knapsack(wt,cost,n,W);
+cout<<ans<<endl;
+}

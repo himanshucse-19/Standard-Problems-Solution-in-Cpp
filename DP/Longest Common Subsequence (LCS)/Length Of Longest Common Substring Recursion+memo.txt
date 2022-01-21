@@ -1,0 +1,44 @@
+/* Author: 
+          
+          shankhdhar234himanshu@gmail.com
+  
+                                              */      
+          
+#include<bits/stdc++.h>
+#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
+#define lli long long int
+#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
+#define test lli t;cin>>t;while(t--)
+#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
+#define mod 1000000007
+#define pb push_back
+#define loop0(i,n) for(int i=0; i<n; i++)
+#define loop1(i,n) for(int i=1; i<=n; i++)
+#define rev0(i,n)  for(int i=n-1; i>=0; i--)
+#define rev1(i,n)  for(int i=n; i>0; i--)
+using namespace std;
+int dp[100][100][100];
+int LCSubString(string s,string c,int n,int m,int cnt=0)
+{
+    if(m==0||n==0)
+    return cnt;
+    if(dp[n][m][cnt]!=-1)
+    return dp[n][m][cnt];
+    if(s[n-1]==c[m-1])
+    return dp[n][m][cnt]=LCSubString(s,c,n-1,m-1,cnt+1);
+    else
+    return dp[n][m][cnt]=max(LCSubString(s,c,n,m-1,0),LCSubString(s,c,n-1,m,0));
+}
+int main()
+{
+ toh_shuru_karte_hai_bina_kise_bakchodi_ke;
+//freopen("input.txt", "r", stdin);
+//freopen("output.txt", "w", stdout);
+string s,c;
+cin>>s>>c;
+memset(dp,-1,sizeof(dp));
+int ans=LCSubString(s,c,s.length(),c.length());
+cout<<ans<<endl;
+
+}
+
