@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
+int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+int dist[510][50000];
+bool vis[510][50000];
+int n;
+bool isvalid(int x,int y)
+{
+    if(x<1||x>n||y<1||y>n||vis[x][y]==true)
+    return false;
+    return true;
+}
+void bfs(int a,int b)
+{
+    queue<pair<int,int>>q;
+    dist[a][b]=0;
+    vis[a][b]=true;
+    q.push({a,b});
+    while(!q.empty())
+    {
+        auto z=q.front();
+        q.pop();
+        int x=z.first;
+        int y=z.second;
+        for(int i=0;i<8;i++)
+        {
+            if(isvalid(x+dx[i],y+dy[i]))
+            {
+                q.push({x+dx[i],y+dy[i]});
+                vis[x+dx[i]][y+dy[i]]=true;
+                dist[x+dx[i]][y+dy[i]]=min(dist[x+dx[i]][y+dy[i]],dist[x][y]+1);
+            }
+        }
+    }
+}
+int main() {
+     
+	// your code goes here
+	cin>>n;
+	int x,y,z,w;
+	cin>>x>>y>>z>>w;
+	for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+        {
+            vis[i][j]=false;
+            dist[i][j]=1e9;
+        }
+    }
+	bfs(x,y);
+	
+    if(dist[z][w]==1e9)
+    cout<<-1<<endl;
+    else
+	cout<<dist[z][w]<<endl;
+	return 0;
+}
