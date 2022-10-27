@@ -1,43 +1,465 @@
-/* Author: 
-          
-          shankhdhar234himanshu@gmail.com
-  
-                                              */      
-          
-#include<bits/stdc++.h>
-#define code lli n,k;cin>>n>>k;lli a[n];loop0(i,n) cin>>a[i]
-#define lli long long int
-#define toh_shuru_karte_hai_bina_kise_bakchodi_ke ios_base::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr)
-#define test lli t;cin>>t;while(t--)
-#define arrin lli n;cin>>n;lli a[n];for(lli i=0;i<n;i++)cin>>a[i]       
-#define mod 1000000007
-#define pb push_back
-#define loop0(i,n) for(int i=0; i<n; i++)
-#define loop1(i,n) for(int i=1; i<=n; i++)
-#define rev0(i,n)  for(int i=n-1; i>=0; i--)
-#define rev1(i,n)  for(int i=n; i>0; i--)
-using namespace std;
-void subsequences(string input,string output)
-{
-    if(output.length()==0)
-    {
-        cout<<input<<endl;
-        return;
-    }
-    subsequences(input+output[0],output.substr(1));
-    subsequences(input,output.substr(1));
-}
-int main()
-{
- toh_shuru_karte_hai_bina_kise_bakchodi_ke;
-//freopen("input.txt", "r", stdin);
-//freopen("output.txt", "w", stdout);
-test{
-    string s;
-    cin>>s;
-    string input="";
-    string output=s;
-    subsequences(input,output);
-    
-}
-}
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>file_1651037340611</title>
+      <style type="text/css"> * {margin:0; padding:0; text-indent:0; }
+         h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 9pt; }
+         .s1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+         .s2 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9pt; }
+         .s3 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 9pt; }
+         .s4 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
+         .s5 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 9pt; }
+         .s6 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9pt; }
+         .s7 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+         .s8 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
+         p { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; margin:0pt; }
+         .s9 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 9pt; }
+         .a { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
+         table, tbody {vertical-align: top; overflow: visible; }
+      </style>
+   </head>
+   <body>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <table>
+         <tr>
+            <td>
+               <img src="https://ridecell.com/wp-content/uploads/Ridecell_Logo.png" width="150" height="120"> 
+               </img>
+            </td>
+            <td>
+                  <h1 style="padding-top: 4pt;padding-left: 28pt;text-indent: 0pt;text-align: left;">CUSTOMER INFORMATION</h1>
+                  <p class="s1" style="padding-top: 2pt;padding-left: 28pt;text-indent: 0pt;line-height: 125%;text-align: left;">BRAD HUTTO 555 5TH ST N</p>
+                  <p class="s1" style="padding-left: 28pt;text-indent: 0pt;line-height: 128%;text-align: left;">TAMPA, FL 33712 USA Day (727) 555-1212</p>
+                  <h1 style="padding-top: 4pt;padding-left: 28pt;text-indent: 0pt;line-height: 125%;text-align: left;">PICK UP/DROP OFF LOCATION<span class="s2"> </span><span class="s1">ATLANTA - DOWNTOW (0317-10)1390 MARIETTA BLVD</span></h1>
+                  <p class="s1" style="padding-left: 28pt;text-indent: 0pt;line-height: 126%;text-align: left;">D/O TIL 9PM M/F 3PM SAT ATLANTA, GA 30318  USA Voice (404) 350-6793</p>
+                  <p class="s1" style="padding-left: 28pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Fax (404) 351-7645</p>
+            </td>
+         </tr>
+      </table>
+     
+      <p class="s3" style="padding-top: 8pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">DRIVER NAME(S):<span class="s1"> ALBERTO JIMENEZ                            </span>TRAVEL SCOPE:<span class="s1"> International</span></p>
+      <p style="text-indent: 0pt;text-align: left;"/>
+      <p class="s4" style="padding-top: 2pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">This lessor cooperates with all Federal, State, and local law enforcement officials nationwide to provide the identity of customers who operate this rental CMV</p>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <table style="border-collapse:collapse;margin-left:5.90171pt" cellspacing="0">
+         <tr style="height:12pt">
+            <td style="width:164pt">
+               <p class="s5" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">UNIT INFORMATION</p>
+            </td>
+            <td style="width:338pt" colspan="2">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+         </tr>
+         <tr style="height:13pt">
+            <td style="width:164pt">
+               <p class="s6" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Unit #:330970</p>
+            </td>
+            <td style="width:176pt">
+               <p class="s7" style="padding-top: 1pt;padding-left: 30pt;text-indent: 0pt;text-align: left;">Max. Payload: 3,736 lbs.</p>
+            </td>
+            <td style="width:162pt">
+               <p class="s7" style="padding-top: 1pt;padding-left: 46pt;text-indent: 0pt;text-align: left;">Rented With Damage: NO</p>
+            </td>
+         </tr>
+         <tr style="height:26pt">
+            <td style="width:164pt">
+               <p class="s7" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">2108 - 12FT SAG LIGHT PANEL</p>
+               <p class="s7" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">License #: RJQ8748</p>
+            </td>
+            <td style="width:176pt">
+               <p class="s7" style="padding-top: 1pt;padding-left: 30pt;text-indent: 0pt;text-align: left;">Height: 9 ft.2 in.</p>
+            </td>
+            <td style="width:162pt">
+               <p class="s7" style="padding-top: 1pt;padding-left: 46pt;text-indent: 0pt;text-align: left;">Returned With Damage: NO</p>
+               <p class="s6" style="padding-top: 1pt;padding-left: 46pt;text-indent: 0pt;text-align: left;">Mileage Out: 86,513</p>
+            </td>
+         </tr>
+         <tr style="height:17pt">
+            <td style="width:164pt">
+               <p class="s7" style="padding-top: 4pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">License State: GA</p>
+            </td>
+            <td style="width:176pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:162pt">
+               <p style="padding-left: 103pt;text-indent: 0pt;line-height: 1pt;text-align: left;"/>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:164pt">
+               <p class="s7" style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">License Exp: 08/31/2021</p>
+            </td>
+            <td style="width:176pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:162pt">
+               <p class="s6" style="padding-top: 2pt;padding-left: 46pt;text-indent: 0pt;text-align: left;">Unleaded Fuel Out: EMPTY</p>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:164pt">
+               <p class="s7" style="padding-top: 4pt;padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Owning Location: 0057-10</p>
+            </td>
+            <td style="width:176pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:162pt">
+               <p style="padding-left: 130pt;text-indent: 0pt;line-height: 1pt;text-align: left;"/>
+               <p class="s6" style="padding-top: 3pt;padding-left: 46pt;text-indent: 0pt;line-height: 9pt;text-align: left;">Unleaded Fuel In: <u>FULL</u></p>
+            </td>
+         </tr>
+      </table>
+      <p class="s1" style="padding-top: 5pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Customer shall be responsible for all tolls incurred in the operation of the Vehicle, whether or not the provided transponder is used.</p>
+      <p class="s1" style="padding-top: 8pt;padding-left: 182pt;text-indent: 0pt;text-align: center;">NO HAZARDOUS MATERIAL BEING TRANSPORTED</p>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <h1 style="padding-top: 8pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">OPTIONAL PROTECTION PLANS</h1>
+      <p class="s1" style="padding-top: 2pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Limited Damage Waiver/LDW $1000 Responsibility   *ACCEPTED*</p>
+      <p class="s4" style="padding-top: 2pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Rates: $849.33/Month     $196.00/Week        $28.00/Day</p>
+      <p class="s1" style="padding-top: 6pt;padding-left: 8pt;text-indent: 0pt;line-height: 125%;text-align: left;">Limited Damage Waiver/LDW $5000 Responsibility    *DECLINED* Liability Coverage/LIABILITY ACCIDENT INSURANCE  * PROVIDES* <span class="s8">Rates: $758.33/Month     $175.00/Week        $25.00/Day</span></p>
+      <p class="s1" style="padding-top: 4pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">Supplemental Liability                  *DECLINED*</p>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+     
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <h1 style="padding-top: 4pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">BILLING INFORMATION</h1>
+      <p class="s1" style="padding-top: 2pt;padding-left: 8pt;text-indent: 0pt;line-height: 155%;text-align: left;">Invoice #:              PO #:               Billing Cycle: Weekly Bill Start Date:04/23/21 10:00 PM</p>
+      <p style="text-indent: 0pt;text-align: left;"/>
+      <p class="s2" style="padding-left: 8pt;text-indent: 0pt;line-height: 186%;text-align: left;">Remit To: ABC TRUCK LEASING CO.,L.P. - PO BOX 532658 ATLANTA, GA 30353-2658 USA <u>CHARGES</u></p>
+      <table style="border-collapse:collapse;margin-left:5.90171pt" cellspacing="0">
+         <tr style="height:40pt">
+            <td style="width:63pt">
+               <p class="s9" style="padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Type</p>
+               <p class="s7" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Unit #:330970</p>
+            </td>
+            <td style="width:89pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:176pt" colspan="2">
+               <p class="s9" style="padding-left: 119pt;padding-right: 21pt;text-indent: 0pt;line-height: 10pt;text-align: center;">Quantity</p>
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+               <p class="s7" style="padding-left: 97pt;text-indent: 0pt;text-align: center;">3</p>
+            </td>
+            <td style="width:56pt">
+               <p class="s9" style="padding-right: 6pt;text-indent: 0pt;line-height: 10pt;text-align: center;">Unit of Meas</p>
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+               <p class="s7" style="padding-left: 16pt;padding-right: 22pt;text-indent: 0pt;text-align: center;">Day</p>
+            </td>
+            <td style="width:125pt">
+               <p class="s9" style="padding-left: 42pt;padding-right: 61pt;text-indent: 0pt;line-height: 10pt;text-align: center;">Rate</p>
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+               <p class="s7" style="padding-left: 29pt;text-indent: 0pt;text-align: left;">$100.00</p>
+            </td>
+            <td style="width:68pt">
+               <p class="s9" style="padding-left: 36pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Charge</p>
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+               <p class="s6" style="padding-left: 33pt;text-indent: 0pt;text-align: left;">$300.00</p>
+            </td>
+         </tr>
+         <tr style="height:13pt">
+            <td style="width:63pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Mileage</p>
+            </td>
+            <td style="width:89pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 3pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Out: 86,513</p>
+            </td>
+            <td style="width:176pt" colspan="2">
+               <p class="s7" style="padding-top: 2pt;padding-right: 31pt;text-indent: 0pt;line-height: 10pt;text-align: right;">750</p>
+            </td>
+            <td style="width:56pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 14pt;text-indent: 0pt;line-height: 10pt;text-align: left;">Miles</p>
+            </td>
+            <td style="width:125pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 29pt;text-indent: 0pt;line-height: 10pt;text-align: left;">$0.2000</p>
+            </td>
+            <td style="width:68pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;line-height: 10pt;text-align: right;">$150.00</p>
+            </td>
+         </tr>
+         <tr style="height:19pt">
+            <td style="width:152pt">
+               <p class="s7" style="padding-top: 5pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Ldw $1000 Responsibility</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p class="s7" style="padding-top: 5pt;padding-right: 2pt;text-indent: 0pt;text-align: center;">3</p>
+            </td>
+            <td style="width:56pt">
+               <p class="s7" style="padding-top: 5pt;padding-left: 16pt;text-indent: 0pt;text-align: left;">Day</p>
+            </td>
+            <td style="width:125pt">
+               <p class="s7" style="padding-top: 5pt;padding-left: 34pt;text-indent: 0pt;text-align: left;">$28.00</p>
+            </td>
+            <td style="width:68pt">
+               <p class="s6" style="padding-top: 5pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">$84.00</p>
+            </td>
+         </tr>
+         <tr style="height:16pt">
+            <td style="width:152pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Liability Accident Insurance</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p class="s7" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: center;">3</p>
+            </td>
+            <td style="width:56pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 16pt;text-indent: 0pt;text-align: left;">Day</p>
+            </td>
+            <td style="width:125pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 34pt;text-indent: 0pt;text-align: left;">$25.00</p>
+            </td>
+            <td style="width:68pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">$75.00</p>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:152pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">environmental fee</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p class="s7" style="padding-top: 2pt;padding-left: 6pt;text-indent: 0pt;text-align: left;">3 Days @ $3.00</p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:68pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">$9.00</p>
+            </td>
+         </tr>
+         <tr style="height:16pt">
+            <td style="width:152pt">
+               <p class="s7" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">Vehicle Licensing Recovery Fee</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p class="s7" style="padding-left: 6pt;text-indent: 0pt;text-align: left;">3 Days @ $2.50</p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:68pt">
+               <p class="s6" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">$7.50</p>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:152pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">SUBTOTAL:</p>
+            </td>
+            <td style="width:68pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">$625.50</p>
+            </td>
+         </tr>
+         <tr style="height:36pt">
+            <td style="width:152pt">
+               <p class="s5" style="padding-top: 7pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">TAXES</p>
+               <p class="s7" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">GA SALES TAX</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-top-style:solid;border-top-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:68pt;border-top-style:solid;border-top-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+               <p class="s6" style="padding-right: 2pt;text-indent: 0pt;text-align: right;">$41.52</p>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:152pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">TOTAL DUE:</p>
+            </td>
+            <td style="width:68pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">$667.02</p>
+            </td>
+         </tr>
+         <tr style="height:23pt">
+            <td style="width:152pt">
+               <p class="s5" style="padding-top: 7pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">PAYMENTS AND REFUNDS</p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-top-style:solid;border-top-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:68pt;border-top-style:solid;border-top-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+         </tr>
+         <tr style="height:19pt">
+            <td style="width:152pt">
+               <p class="s9" style="padding-top: 3pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">Pay Type</p>
+            </td>
+            <td style="width:59pt">
+               <p class="s9" style="padding-top: 3pt;padding-left: 20pt;text-indent: 0pt;text-align: left;">Trans</p>
+            </td>
+            <td style="width:41pt">
+               <p class="s9" style="padding-top: 3pt;padding-left: 15pt;text-indent: 0pt;text-align: left;">Date</p>
+            </td>
+            <td style="width:76pt">
+               <p class="s9" style="padding-top: 3pt;padding-left: 48pt;text-indent: 0pt;text-align: left;">Card #</p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt">
+               <p class="s9" style="padding-top: 3pt;padding-left: 31pt;text-indent: 0pt;text-align: left;">Approval Code</p>
+            </td>
+            <td style="width:68pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+         </tr>
+         <tr style="height:15pt">
+            <td style="width:152pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-left: 2pt;text-indent: 0pt;text-align: left;">PAYMENT:</p>
+            </td>
+            <td style="width:68pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 2pt;padding-right: 2pt;text-indent: 0pt;text-align: right;">($0.00)</p>
+            </td>
+         </tr>
+         <tr style="height:18pt">
+            <td style="width:152pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 6pt;padding-left: 2pt;text-indent: 0pt;line-height: 10pt;text-align: left;">NET DUE:</p>
+            </td>
+            <td style="width:68pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p class="s6" style="padding-top: 6pt;padding-right: 2pt;text-indent: 0pt;line-height: 10pt;text-align: right;">$667.02</p>
+            </td>
+         </tr>
+         <tr style="height:8pt">
+            <td style="width:152pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:59pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:41pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:76pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:56pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:125pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+            <td style="width:68pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt">
+               <p style="text-indent: 0pt;text-align: left;"><br/></p>
+            </td>
+         </tr>
+      </table>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+       <p style="padding-top: 7pt;padding-left: 8pt;text-indent: 0pt;line-height: 87%;text-align: justify;">THIS CONTRACT OFFERS, FOR ADDITIONAL CHARGE OPTIONAL VEHICLE PROTECTION TO COVER YOUR FINANCIAL RESPONSIBILITY FOR DAMAGE OR LOSS TO THE RENTAL VEHICLE. THE PURCHASE OF OPTIONAL VEHICLE PROTECTION IS OPTIONAL AND MAY BE DECLINED. YOU ARE ADVISED TO CAREFULLY CONSIDER WHETHER TO PURCHASE THIS PROTECTION IF YOU HAVE A RENTAL VEHICLE COLLISION COVERAGE PROVIDED BY YOUR CREDIT CARD OR AUTOMOBILE INSURANCE POLICY. BEFORE DECIDING WHETHER TO PURCHASE OPTIONAL VEHICLE PROTECTION, YOU MAY WISH TO DETERMINE WHETHER YOUR CREDIT CARD OR VEHICLE INSURANCE AFFORDS YOU COVERAGE FOR DAMAGE TO THE RENTAL VEHICLE AND THE AMOUNT OF DEDUCTIBLE UNDER SUCH COVERAGE.</p>
+      <p class="s4" style="padding-top: 3pt;padding-left: 156pt;text-indent: 0pt;line-height: 141%;text-align: left;">Customer Name: BRAD HUTTO Created On:   04/23/21 07:32 PM</p>
+      <p style="padding-left: 8pt;text-indent: 0pt;line-height: 87%;text-align: justify;"><a href="http://www.gopenske.com/privacy" class="a" target="_blank">respects your privacy. Penske collects contact, driver’s license, and payment information from Customers at time of rental, and shares this information with service providers as needed to facilitate the rental process, perform watch list checks, and process payments. You may have the right to request copies or deletion of the personal information we collect about you under certain local privacy laws. For details on how Penske and its trusted partners manage your personal information, provide you with choices regarding your personal information, and a statement of your privacy rights, see our full Privacy Policy at </a><a href="mailto:privacy@penske.com" class="a" target="_blank">www.gopenske.com/privacy. You may also contact us at </a>privacy@penske.com or (844) 967-0109.</p>
+      <p style="text-indent: 0pt;text-align: left;"><br/></p>
+      <p style="padding-left: 8pt;text-indent: 0pt;line-height: 87%;text-align: justify;">Customer acknowledges that Customer has read, or been given an opportunity to read, the Rental Agreement, including this Cover Sheet, the General Terms and Conditions, as well as any attachments hereto and agrees to be fully bound by its terms. Before deciding whether to purchase the optional limited damage waiver, you may wish to determine whether your own automobile insurance already affords you coverage for damage to the rental vehicle. To the extent the Customer had purchased Limited Damage Waiver coverage, Customer acknowledges reading, understanding, and agreeing with the disclosures, exclusions, and terms and conditions applicable to Limited Damage Waiver as set forth in Attachment D to the Rental Agreement.</p>
+      <p style="padding-top: 5pt;padding-left: 236pt;text-indent: -32pt;line-height: 146%;text-align: left;">By:<u> </u> Customer/Authorized Signatory</p>
+   </body>
+</html>
