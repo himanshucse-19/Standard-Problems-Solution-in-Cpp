@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// function to generate directed weighted graph
+vector<vector<pair<int, int>>> generateGraph(int n, int m, int minWeight, int maxWeight) {
+    vector<vector<pair<int, int>>> adj(n+1);
+    unordered_set<int> vis;
+
+    // randomly generate edges and weights
+    srand(time(NULL));
+    for (int i = 1; i <= m; i++) {
+        int u = rand() % n + 1;
+        int v = rand() % n + 1;
+        while (vis.count(u*n+v)) {   // to avoid duplicate edges
+            u = rand() % n + 1;
+            v = rand() % n + 1;
+        }
+        vis.insert(u*n+v);
+
+        int w = rand() % (maxWeight - minWeight + 1) + minWeight;
+        adj[u].push_back({v, w});
+    }
+
+    return adj;
+}
+
+int main() {
+    freopen("output","w",stdout);
+    int n = 1000;          // number of vertices
+    int m = 1000;         // number of edges
+    int minWeight = -10000;  // minimum weight of edge
+    int maxWeight = 10000; // maximum weight of edge
+
+    vector<vector<pair<int, int>>> adj = generateGraph(n, m, minWeight, maxWeight);
+
+    // print adjacency list
+    cout<<n<<" "<<m<<endl;
+    for (int i = 1; i <= n; i++) {
+        for (auto j : adj[i]) {
+            cout << i-1<<" "<<j.first-1 << " " << j.second <<endl;
+        }
+    }
+
+    return 0;
+}
